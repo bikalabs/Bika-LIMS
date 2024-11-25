@@ -2512,6 +2512,11 @@ class AnalysisRequest(BaseFolder):
             rr.update(value)
         return self.Schema()['ResultsRange'].set(self, rr.values())
 
+    security.declarePublic('getDateVerified')
+
+    def getDateVerified(self):
+        return getTransitionDate(self, 'verify')
+
     security.declarePublic('getDatePublished')
 
     def getDatePublished(self):
